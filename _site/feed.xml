@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-30T19:24:27+08:00</updated><id>http://localhost:4000/</id><title type="html">记录美好生活</title><subtitle>将自己学习的知识和生活的点滴记录下来</subtitle><author><name>true</name></author><entry><title type="html">JAVA核心技术第五章</title><link href="http://localhost:4000/2019/03/27/javaCoreTechnologyC5.html" rel="alternate" type="text/html" title="JAVA核心技术第五章" /><published>2019-03-27T00:00:00+08:00</published><updated>2019-03-27T00:00:00+08:00</updated><id>http://localhost:4000/2019/03/27/javaCoreTechnologyC5</id><content type="html" xml:base="http://localhost:4000/2019/03/27/javaCoreTechnologyC5.html">&lt;h1 id=&quot;第五章继承&quot;&gt;第五章继承&lt;/h1&gt;
+
+&lt;h3 id=&quot;目录&quot;&gt;目录&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#t1&quot;&gt;super和this的区别&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#t2&quot;&gt;子类能从父类中继承到私有属性吗&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#t3&quot;&gt;父类构造器&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#t4&quot;&gt;实例化子类时会同时实例化一个父类吗&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#t5&quot;&gt;调用子类构造器时会调用父类构造方法&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#t6&quot;&gt;多态的概念&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#t7&quot;&gt;方法签名&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#t8&quot;&gt;问题：能覆盖一个private或static方法吗&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#t9&quot;&gt;方法的覆盖&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#t10&quot;&gt;阻止继承和覆盖&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#t11&quot;&gt;强制转换&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#t12&quot;&gt;instanceof&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#t13&quot;&gt;问题: 多态调用子类继承方法，方法中含有子类特有的方法&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;#t14&quot;&gt;问题:abstract 类的构造方法可以是public的吗 子类可以调用父类的构造器吗&lt;/a&gt;&lt;/p&gt;
+
+    &lt;hr /&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;span id=&quot;t1&quot;&gt;super 和 this 的区别&lt;/span&gt;&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;this&lt;/p&gt;
+
+      &lt;p&gt;​	this是自身的一个对象，代表对象本身，可以理解为：指向对象本身的一个指针。&lt;/p&gt;
+
+      &lt;p&gt;super&lt;/p&gt;
+
+      &lt;p&gt;​	和 this 引用不同，super 不是一个对象的引用，不能将super赋给一个对象变量&lt;/p&gt;
+
+      &lt;p&gt;它只是一个指示编译器调用超类方法的特殊关键字&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;span id=&quot;t2&quot;&gt;子类能从父类中继承到私有属性吗&lt;/span&gt;&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;官方文档解释：&lt;/p&gt;
+
+      &lt;p&gt;​	A subclass does not inherit the private members of its parent class. However, if the superclass has public or protected methods for accessing its private fields, these can also be used by the subclass&lt;/p&gt;
+
+      &lt;p&gt;​	子类不继承其父类的私有成员。但是，如果超类有访问其私有字段的公共或受保护方法，子类也可以使用这些方法&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;span id=&quot;t3&quot;&gt;父类构造器&lt;/span&gt;&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;有时子类并不能直接访问父类的私有属性，可以通过调用父类构造器来初始化父类私有属性但是&lt;code class=&quot;highlighter-rouge&quot;&gt;super()&lt;/code&gt;语句即super调用构造器的语句必须是子类构造器的第一条语句&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;span id=&quot;t4&quot;&gt;实例化子类时会同时实例化一个父类吗&lt;/span&gt;&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;在实例化子类时并不会实例化一个父类，但是会调用父类的构造方法可以初始化父类的属性&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;span id=&quot;t5&quot;&gt;调用子类构造器时会调用父类构造方法&lt;/span&gt;&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;如果子类构造器没有显示的调用父类构造器，则自动调用父类默认（无参）构造器如果父类没有无参构造器编译器就会报错&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;span id=&quot;t6&quot;&gt;多态的概念&lt;/span&gt;&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;一个引用变量可以指示多种事件类型的现象称为多态&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;span id=&quot;t7&quot;&gt;方法签名&lt;/span&gt;&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;方法的名字和参数列表称为方法的签名&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;span id=&quot;t8&quot;&gt;问题：能覆盖一个private或static的方法吗&lt;/span&gt;&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;不能覆盖一个private，static的方法，如果在子类中写了一个名字相同结果与在子类中增加一个方法是一样的，当用父类引用调用子类对象这个方法时调用的还是父类的方法。&lt;/p&gt;
+
+      &lt;p&gt;static 方法之所以不能被覆盖原因是：方法覆盖是基于运行时动态绑定的但static方法是编译时静态绑定的，static和类的任何实例都不相关，所以概念上不适用&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;span id=&quot;t9&quot;&gt;方法的覆盖&lt;/span&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;定义&lt;/p&gt;
+
+        &lt;blockquote&gt;
+          &lt;p&gt;在子类中定义了一个与超类签名相同的方法，子类中的方法将覆盖超类中的方法&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;覆盖规则&lt;/p&gt;
+
+        &lt;blockquote&gt;
+          &lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：返回类型不是签名的一部分，因此，在覆盖方法时一定要注意返回类型的兼容性&lt;/p&gt;
+        &lt;/blockquote&gt;
+
+        &lt;ol&gt;
+          &lt;li&gt;父类中的方法在子类中必须可见，即子类继承了父类中的该方法（可以显式的使用super关键字来访问父类中的被重写的方法）&lt;/li&gt;
+          &lt;li&gt;如果父类中的方法为private类型的，那么子类则无法继承，也无法覆盖&lt;/li&gt;
+          &lt;li&gt;如果父类和子类都是static方法，那么子类隐藏父类的方法，而不是重写父类方法&lt;/li&gt;
+          &lt;li&gt;子类和父类的方法必须要具有相同的函数名称、参数列表，并且子类的返回值与父类相同或者是父类返回类型的子类型（jdk1.5之后）&lt;/li&gt;
+          &lt;li&gt;如果方法名称相同而参数列表不同（返回类型可以相同也可以不同），那么只是方法的重载，而非重写。&lt;/li&gt;
+          &lt;li&gt;如果方法名称和参数列表相同，返回值类型不同，子类返回值类型也不是父类返回值类型的子类，编译器就会报错。（无法覆盖）&lt;/li&gt;
+          &lt;li&gt;子类方法的访问权限不能小于父类方法的访问权限（可以具有相同的访问权限或者子类的访问权限大于父类）&lt;/li&gt;
+          &lt;li&gt;子类方法不能比父类方法抛出更多的编译时异常（不是运行时异常），即子类方法抛出的编译时异常或者和父类相同或者是父类异常的子类。&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;span id=&quot;t10&quot;&gt;阻止继承和覆盖&lt;/span&gt;&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;可以使用&lt;code class=&quot;highlighter-rouge&quot;&gt;final&lt;/code&gt;关键字修饰类防止类的继承&lt;/p&gt;
+
+      &lt;p&gt;可以使用&lt;code class=&quot;highlighter-rouge&quot;&gt;final&lt;/code&gt;关键字修饰方法防止方法的覆盖&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;span id=&quot;t11&quot;&gt;强制转换&lt;/span&gt;（引用）&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;一个子类可以转换成父类但是如果一个父类要转换成子类必须的经过强制转换，&lt;/p&gt;
+
+      &lt;p&gt;&lt;strong&gt;强制转换有前提&lt;/strong&gt;：前提是要转换成子类的&lt;strong&gt;父类引用必须得指向一个子类对象&lt;/strong&gt;否则会报错&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;span id=&quot;t12&quot;&gt;instanceof&lt;/span&gt;&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;instanceof 运算符 用法：&lt;/p&gt;
+
+      &lt;p&gt;​	a(引用) instanceof X(类或接口)&lt;/p&gt;
+
+      &lt;p&gt;返回的是true或false&lt;/p&gt;
+
+      &lt;p&gt;判断a引用所&lt;strong&gt;指向的对象&lt;/strong&gt;是否是&lt;strong&gt;X类(接口)或X类的子类&lt;/strong&gt;的一个实例&lt;/p&gt;
+
+      &lt;p&gt;可以在强制转换的时候使用避免出错&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;span id=&quot;t13&quot;&gt;问题 多态调用子类继承方法，方法中含有子类特有的方法&lt;/span&gt;&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;问题：使用多态调用子类继承的方法其中这个方法调用的子类特有的方法可以吗?&lt;/p&gt;
+
+      &lt;p&gt;答案：是可以的&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;span id=&quot;t14&quot;&gt;问题:abstract 类的构造方法可以是public的吗 子类可以调用父类的构造器吗&lt;/span&gt;&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;抽象类的构造方法可以是public的，并且子类可以用super来调用&lt;/p&gt;
+
+      &lt;p&gt;父类的构造方法来初始化属性&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>海</name></author><category term="java" /><summary type="html">第五章继承</summary></entry><entry><title type="html">表与表之间的关系</title><link href="http://localhost:4000/2019/03/24/relationship.html" rel="alternate" type="text/html" title="表与表之间的关系" /><published>2019-03-24T00:00:00+08:00</published><updated>2019-03-24T00:00:00+08:00</updated><id>http://localhost:4000/2019/03/24/relationship</id><content type="html" xml:base="http://localhost:4000/2019/03/24/relationship.html">&lt;h1 id=&quot;表与表之间的关系&quot;&gt;表与表之间的关系&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;一对多关系&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;&lt;strong&gt;建表原则&lt;/strong&gt;：在多的一方创建一个字段，字段作为外键指向一的一方的字段(unique)&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alter table 从表名 add [constraint] [外键名] foreign key (外键字段名) references 主表名(主表字段)&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;多对多关系&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;&lt;strong&gt;建表原则&lt;/strong&gt;：需要创建第三张表，中间表中至少两个字段，这两个字段分别作为外键指向各自一方的字段(unique)&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>海</name></author><category term="database" /><category term="SQL" /><summary type="html">表与表之间的关系</summary></entry><entry><title type="html">多表查询</title><link href="http://localhost:4000/2019/03/24/query.html" rel="alternate" type="text/html" title="多表查询" /><published>2019-03-24T00:00:00+08:00</published><updated>2019-03-24T00:00:00+08:00</updated><id>http://localhost:4000/2019/03/24/query</id><content type="html" xml:base="http://localhost:4000/2019/03/24/query.html">&lt;h1 id=&quot;多表查询连接查询&quot;&gt;多表查询(连接查询)&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;交叉连接查询（基本不会使用-得到的两个表的乘积）&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from A表, B表&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;内连接查询（使用的关键字 inner join 其中 inner 可以省略）&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;隐式内连接：&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from A表, B表 where 条件&lt;/code&gt;&lt;/p&gt;
+
+        &lt;p&gt;例子：&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from category, product where category_id = cid&lt;/code&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;显示内连接：&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from A表 [inner] join B表  on 条件&lt;/code&gt;&lt;/p&gt;
+
+        &lt;p&gt;例子：&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from category inner join product on category_id = cid&lt;/code&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;外连接查询（使用关键字 outer join 其中 outer 可以省略）&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;左外连接：&lt;code class=&quot;highlighter-rouge&quot;&gt;left [outer] join&lt;/code&gt;
+        &lt;ul&gt;
+          &lt;li&gt;语法：&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from A表 left [outer] join B表 on 条件&lt;/code&gt;&lt;/li&gt;
+          &lt;li&gt;例子：&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from category left outer join product on category_id = cid&lt;/code&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;右外连接：&lt;code class=&quot;highlighter-rouge&quot;&gt;right [outer] join&lt;/code&gt;
+        &lt;ul&gt;
+          &lt;li&gt;语法：&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from A表 right [outer] join B表 on 条件&lt;/code&gt;&lt;/li&gt;
+          &lt;li&gt;例子： &lt;code class=&quot;highlighter-rouge&quot;&gt;select * from category right outer join B表 on catgegory_id = cid&lt;/code&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;外连接和内连接的区别&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;左外连接：左表全部及两个表的交集&lt;/p&gt;
+
+      &lt;p&gt;右外连接：右表全部及两个表的交集&lt;/p&gt;
+
+      &lt;p&gt;外连接：两个表的交集&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;&lt;strong&gt;各种连接之间的区别和联系&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;内连接，外连接实际上都是在笛卡尔积（join）的基础上对记录进行筛选。&lt;/p&gt;
+
+  &lt;p&gt;等值连接和非等值连接：这两者同时包含在内连接和外连接中，因为内连接和外连接都是需要连接条件的，条件为=则为等值连接，反之为非等值连接。&lt;/p&gt;
+
+  &lt;p&gt;自然连接：等值连接的一种，使用natural join后面可以不使用on接查询条件，默认会将关联表中的相同字段进行比较，查询出的结果相同的字段会去重（值必须相等）。&lt;/p&gt;
+
+  &lt;p&gt;内连接：使用inner join和join连接都行，重点是要有查询条件，条件使用on或者where引导查询都行，查询出的结果为两表都匹配的记录。&lt;/p&gt;
+
+  &lt;p&gt;外连接：分为左外连接，右外连接，要有查询条件，条件只能使用on引导查询。左外连接查询出的结果除了两表都匹配的记录外，还会查询出左表的其余记录，同时右表对应记录置为null,左外连接则相反。&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name>海</name></author><category term="database" /><category term="SQL" /><summary type="html">多表查询(连接查询)</summary></entry><entry><title type="html">嵌套查询</title><link href="http://localhost:4000/2019/03/24/nestedqueries.html" rel="alternate" type="text/html" title="嵌套查询" /><published>2019-03-24T00:00:00+08:00</published><updated>2019-03-24T00:00:00+08:00</updated><id>http://localhost:4000/2019/03/24/nestedqueries</id><content type="html" xml:base="http://localhost:4000/2019/03/24/nestedqueries.html">&lt;h1 id=&quot;嵌套查询&quot;&gt;嵌套查询&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;定义：一条查询(select) 语句结果作为另一条查询(select)语句的 一部分(查询条件，查询结果，表等)。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;案例：查询&lt;strong&gt;product&lt;/strong&gt;表中属于化妆品的商品信息&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;解决方法一（嵌套查询）&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select product.* from product where category_id = (select cid from category where cname='化妆品')&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;解决方法二（内连接）&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select product.* from product , category where category_id = cid and cname = '化妆品'&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>海</name></author><category term="database" /><category term="SQL" /><summary type="html">嵌套查询</summary></entry><entry><title type="html">外键约束</title><link href="http://localhost:4000/2019/03/24/foreignkey.html" rel="alternate" type="text/html" title="外键约束" /><published>2019-03-24T00:00:00+08:00</published><updated>2019-03-24T00:00:00+08:00</updated><id>http://localhost:4000/2019/03/24/foreignkey</id><content type="html" xml:base="http://localhost:4000/2019/03/24/foreignkey.html">&lt;h1 id=&quot;外键约束&quot;&gt;外键约束&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;外键特点&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;从表外键的值是对主表主键的引用&lt;/li&gt;
+      &lt;li&gt;从表外键类型&lt;strong&gt;必须与主表字段类型一致&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;从表的外键可以是主表主键也可以是其他&lt;strong&gt;唯一性&lt;/strong&gt;字段(&lt;strong&gt;unique&lt;/strong&gt;)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;添加外键约束的方法&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;创建表时声明外键约束(在表的下方声明)&lt;/p&gt;
+
+        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[constraint] [外键名称] foreign key (从表外键字段名) references 主表(主表字段名)&lt;/code&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;修改表声明外键约束&lt;/p&gt;
+
+        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alter table 从表 add [constraint] [外键名称] foreign key (从表外键字段名) references 主表 (主表字段名)&lt;/code&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;外键名称&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;是用来删除外键的 建议用 &lt;strong&gt;_fk&lt;/strong&gt; 结尾&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;外键的删除&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alter table 表名 drop foreign key 外键名称&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>海</name></author><category term="database" /><category term="SQL" /><summary type="html">外键约束</summary></entry><entry><title type="html">排序查询</title><link href="http://localhost:4000/2019/03/23/sort.html" rel="alternate" type="text/html" title="排序查询" /><published>2019-03-23T00:00:00+08:00</published><updated>2019-03-23T00:00:00+08:00</updated><id>http://localhost:4000/2019/03/23/sort</id><content type="html" xml:base="http://localhost:4000/2019/03/23/sort.html">&lt;h1 id=&quot;排序&quot;&gt;排序&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;查询所有的商品，按&lt;strong&gt;价格&lt;/strong&gt;进行排序(升序)&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from product order by price asc&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;查询所有的商品，按&lt;strong&gt;价格&lt;/strong&gt;进行排序(降序)&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from product order by price desc&lt;/code&gt;&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;asc : ascending （增长的）&lt;/p&gt;
+
+      &lt;p&gt;desc : descending (下降的)&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;查询又有商品中名称含有&lt;strong&gt;‘a’&lt;/strong&gt; 的 并且按照价格的升序排列&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from product where name like '%a%' order by price asc&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>海</name></author><category term="database" /><category term="SQL" /><summary type="html">排序</summary></entry><entry><title type="html">条件查询</title><link href="http://localhost:4000/2019/03/23/query.html" rel="alternate" type="text/html" title="条件查询" /><published>2019-03-23T00:00:00+08:00</published><updated>2019-03-23T00:00:00+08:00</updated><id>http://localhost:4000/2019/03/23/query</id><content type="html" xml:base="http://localhost:4000/2019/03/23/query.html">&lt;h1 id=&quot;条件查询&quot;&gt;条件查询&lt;/h1&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;运算符&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;说明&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;&amp;gt;    &amp;lt;    &amp;lt;=    &amp;gt;=    =    &amp;lt;&amp;gt;&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;大于，小于，大于(小于)等于,不等于&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;between      …and…&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;显示在某一区间的值（&lt;font color=&quot;red&quot;&gt;含头含尾&lt;/font&gt;）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;in()&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;显示在in列表中的值，例：in(100, 200)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;like ‘ ‘&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;模糊查询，like语句中的%代表零个或多个任意字符，_代表一个字符&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;is null&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;p判断是否为空&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;and&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;d多个条件同时成立&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;or&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;多个条件任一成立&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;not&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;不成立    例：&lt;code class=&quot;highlighter-rouge&quot;&gt;where not (salary &amp;gt;100)&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;仍然以product表为例&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;查询商品名称为’苹果’的商品信息&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from product where name = '苹果'&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;查询价格&amp;lt;=60并且大于55的所有商品信息&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from product where price &amp;lt;=66 and price &amp;gt; 55&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;模糊查询：查询商品名中包含 ’e’ 的商品信息&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from product where name like '%e%'&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;查询商品id在(1,3,5)中的商品信息&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from product where id in (1, 3, 5)&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>海</name></author><category term="database" /><category term="SQL" /><summary type="html">条件查询</summary></entry><entry><title type="html">分页查询</title><link href="http://localhost:4000/2019/03/23/pagingQuery.html" rel="alternate" type="text/html" title="分页查询" /><published>2019-03-23T00:00:00+08:00</published><updated>2019-03-23T00:00:00+08:00</updated><id>http://localhost:4000/2019/03/23/pagingQuery</id><content type="html" xml:base="http://localhost:4000/2019/03/23/pagingQuery.html">&lt;h1 id=&quot;分页查询&quot;&gt;分页查询&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;使用Limit 关键字进行分页查询操作&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;limit 关键字两个参数的含义(limit m, n)&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;n 代表每页含有的记录条数&lt;/p&gt;
+
+    &lt;p&gt;m 代表起始位置(例如要查询第x页则 m = n*(x-1) )&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;limit关键字查询语句&lt;/strong&gt;(例如要查询student表中的学生信息 每页3条记录，第5页)&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from student limit 12, 3&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>海</name></author><category term="database" /><category term="SQL" /><summary type="html">分页查询</summary></entry><entry><title type="html">表的创建与修改</title><link href="http://localhost:4000/2019/03/23/group.html" rel="alternate" type="text/html" title="表的创建与修改" /><published>2019-03-23T00:00:00+08:00</published><updated>2019-03-23T00:00:00+08:00</updated><id>http://localhost:4000/2019/03/23/group</id><content type="html" xml:base="http://localhost:4000/2019/03/23/group.html">&lt;h1 id=&quot;分组&quot;&gt;分组&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;初始化表&lt;/strong&gt;(product)&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;
+        &lt;p&gt;添加分类id&lt;/p&gt;
+
+        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alter table product add cid int&lt;/code&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;初始化数据&lt;/p&gt;
+
+        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;update product set cid = 1&lt;/code&gt;&lt;/p&gt;
+
+        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;update product set cid = 2 where id in (2, 3, 5)&lt;/code&gt;&lt;/p&gt;
+
+        &lt;p&gt;&lt;img src=&quot;img\分组表demo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;根据cid字段分组，分组后统计商品的个数&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select cid, count(*) from product group by cid&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;img\分组查询结果.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;根据cid分组, 分组统计每组商品的平均价格&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select avg(price) from product group by cid&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;img\分组查询价格.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;根据cid分组, 分组统计每组商品的平均价格并显示平均价格大于70的结果&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select avg(price) from product group by cid having arg(price)&amp;gt;70&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;img\分组条件查询价格.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+    &lt;font color=&quot;red&quot;&gt;&lt;b&gt;注意分组之后再使用条件查询 不能用 where 应该使用having&lt;/b&gt;&lt;/font&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>海</name></author><category term="database" /><category term="SQL" /><summary type="html">分组</summary></entry><entry><title type="html">表的创建与修改</title><link href="http://localhost:4000/2019/03/23/CreateTable.html" rel="alternate" type="text/html" title="表的创建与修改" /><published>2019-03-23T00:00:00+08:00</published><updated>2019-03-23T00:00:00+08:00</updated><id>http://localhost:4000/2019/03/23/CreateTable</id><content type="html" xml:base="http://localhost:4000/2019/03/23/CreateTable.html">&lt;h1 id=&quot;表的创建与修改&quot;&gt;表的创建与修改&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;创建表&lt;/p&gt;
+
+    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;create&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;table&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;表名（字段名&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;类型（长度）&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;约束&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+	&lt;span class=&quot;err&quot;&gt;字段名&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;类型（长度）&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;约束&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+	&lt;span class=&quot;err&quot;&gt;字段名&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;类型（长度）&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;约束&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+	&lt;span class=&quot;err&quot;&gt;字段名&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;类型（长度）&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;约束&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;）&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;查看当前数据库的所有表&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;show tables;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;查看表的结构&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;desc 表名;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;删除表&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;drop table 表名;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;修改表名&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;方法一&lt;/p&gt;
+
+        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alter table 表名 rename to 新表名&lt;/code&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;方法二&lt;/p&gt;
+
+        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rename table 表名 to 新表名&lt;/code&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;修改表&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;添加一列&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alter table 表名 add 字段名 类型(长度) [约束]&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;修改列的类型(长度，约束)&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alter table 表名 modify 要修改的字段名 类型(长度) [约束]&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;修改列名(列名，长度，约束等)&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alter table 表名 change 旧列名 新列名 类型(长度) [约束]&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;删除列&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alter table 表名 drop [colmun] 列名&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;修改表的字符集&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alter table 表名 character set 字符集&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;查看表的信息&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;show create table 表名&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>海</name></author><category term="database" /><category term="SQL" /><summary type="html">表的创建与修改</summary></entry></feed>

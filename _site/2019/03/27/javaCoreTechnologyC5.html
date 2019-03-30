@@ -1,0 +1,478 @@
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="将自己学习的知识和生活的点滴记录下来" />
+<meta name="keywords" content="java, web" />
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/media.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/pygments/pygments_friendly.css">
+<link rel="stylesheet" href="/assets/css/github-markdown.css">
+<!-- SNS-icon -->
+<script src="//at.alicdn.com/t/font_856428_y9z6nq7zf5.js"></script>
+<!-- share.css -->
+<link rel="stylesheet" href="/assets/css/share.min.css">
+<!-- font -->
+<link rel="stylesheet" href="/assets/css/font.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Ubuntu|Roboto+Mono|Source+Sans+Pro" rel="stylesheet"> -->
+
+<!-- Favicon -->
+<link href="/assets/profile.jpeg" rel="shortcut icon" />
+<link href="/assets/profile.jpeg" rel="apple-touch-icon-precomposed" />
+<!-- Android Lolipop Theme Color -->
+<!-- <meta name="theme-color" content="#1464FB"> -->
+<title>JAVA核心技术第五章</title>
+<!-- 百度统计 -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 谷歌分析 -->
+
+
+<!-- Android Lolipop Theme Color -->
+<meta name="theme-color" content=" rgb(255,210,32) ">
+</head>
+<body>
+
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+
+<header id="post-header" style="background-color:rgb(255,210,32);">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/" title="my awesome webtitle" style="color: white;">海哥哥的微博</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/" style="color: white;">首页</a></li>
+              
+                <li><a href="/photos.html" style="color: white;">相册</a></li>
+              
+                <li><a href="/tags.html" style="color: white;">标签</a></li>
+              
+                <li><a href="/timeline.html" style="color: white;">时间线</a></li>
+              
+                <li><a href="/about.html" style="color: white;">关于博主</a></li>
+              
+                <li><a href="/friendLink.html" style="color: white;">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/boot_white.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/boot_white.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+
+<!-- 引入移动下拉选项 -->
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/photos.html"><li>相册</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/timeline.html"><li>时间线</li></a>
+        
+          <a href="/about.html"><li>关于博主</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<!-- 引入博文顶部样式 -->
+<!-- 版本一 垃圾 -->
+<!-- <div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">JAVA核心技术第五章</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;海</span>
+</div> -->
+
+<!-- 版本二 可切换页面 -->
+
+<div class="post-top" style="background-color:rgb(255,210,32);">
+  <!-- 页面宽度大于800px -->
+  <div class="left-area">
+    
+      <a href="javascript:;" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(255,210,32)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(255,210,32);"><sapn class="main">没有上一页咯</sapn></span></div>
+    
+  </div>
+  <div class="post-titlearea">
+    <span class="wow fadeInUp" data-wow-delay="0.2s">JAVA核心技术第五章</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;海</span> -->
+  </div>
+  <div class="right-area">
+    
+      <a href="/2019/03/24/relationship.html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(255,210,32)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
+      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(255,210,32);"><sapn class="main">表与表之间的关系</sapn></span></div>
+    
+  </div>
+
+  <!-- 页面宽度小于800px -->
+  <div class="post-changearea">
+    
+      <a href="javascript:;" class="leftchange" style="border-right: 1px solid rgb(255,210,32);border-bottom: 2px solid rgb(255,210,32);"><span><br>没有上一篇咯</span></a>
+    
+    
+      <a href="/2019/03/24/relationship.html" class="rightchange" style="border-left: 1px solid rgb(255,210,32);border-bottom: 2px solid rgb(255,210,32);"><span>下一篇<br><br>表与表之间的关系</span></a>
+    
+  </div>
+</div>
+
+
+<div class="markdown-body fadeInUp animated">
+
+  
+
+  <!-- 文章内容 -->
+  <h1 id="第五章继承">第五章继承</h1>
+
+<h3 id="目录">目录</h3>
+
+<ol>
+  <li>
+    <p><a href="#t1">super和this的区别</a></p>
+  </li>
+  <li>
+    <p><a href="#t2">子类能从父类中继承到私有属性吗</a></p>
+  </li>
+  <li>
+    <p><a href="#t3">父类构造器</a></p>
+  </li>
+  <li>
+    <p><a href="#t4">实例化子类时会同时实例化一个父类吗</a></p>
+  </li>
+  <li>
+    <p><a href="#t5">调用子类构造器时会调用父类构造方法</a></p>
+  </li>
+  <li>
+    <p><a href="#t6">多态的概念</a></p>
+  </li>
+  <li>
+    <p><a href="#t7">方法签名</a></p>
+  </li>
+  <li>
+    <p><a href="#t8">问题：能覆盖一个private或static方法吗</a></p>
+  </li>
+  <li>
+    <p><a href="#t9">方法的覆盖</a></p>
+  </li>
+  <li>
+    <p><a href="#t10">阻止继承和覆盖</a></p>
+  </li>
+  <li>
+    <p><a href="#t11">强制转换</a></p>
+  </li>
+  <li>
+    <p><a href="#t12">instanceof</a></p>
+  </li>
+  <li>
+    <p><a href="#t13">问题: 多态调用子类继承方法，方法中含有子类特有的方法</a></p>
+  </li>
+  <li>
+    <p><a href="#t14">问题:abstract 类的构造方法可以是public的吗 子类可以调用父类的构造器吗</a></p>
+
+    <hr />
+  </li>
+</ol>
+
+<ul>
+  <li>
+    <p><span id="t1">super 和 this 的区别</span></p>
+
+    <blockquote>
+      <p>this</p>
+
+      <p>​	this是自身的一个对象，代表对象本身，可以理解为：指向对象本身的一个指针。</p>
+
+      <p>super</p>
+
+      <p>​	和 this 引用不同，super 不是一个对象的引用，不能将super赋给一个对象变量</p>
+
+      <p>它只是一个指示编译器调用超类方法的特殊关键字</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><span id="t2">子类能从父类中继承到私有属性吗</span></p>
+
+    <blockquote>
+      <p>官方文档解释：</p>
+
+      <p>​	A subclass does not inherit the private members of its parent class. However, if the superclass has public or protected methods for accessing its private fields, these can also be used by the subclass</p>
+
+      <p>​	子类不继承其父类的私有成员。但是，如果超类有访问其私有字段的公共或受保护方法，子类也可以使用这些方法</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><span id="t3">父类构造器</span></p>
+
+    <blockquote>
+      <p>有时子类并不能直接访问父类的私有属性，可以通过调用父类构造器来初始化父类私有属性但是<code class="highlighter-rouge">super()</code>语句即super调用构造器的语句必须是子类构造器的第一条语句</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><span id="t4">实例化子类时会同时实例化一个父类吗</span></p>
+
+    <blockquote>
+      <p>在实例化子类时并不会实例化一个父类，但是会调用父类的构造方法可以初始化父类的属性</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><span id="t5">调用子类构造器时会调用父类构造方法</span></p>
+
+    <blockquote>
+      <p>如果子类构造器没有显示的调用父类构造器，则自动调用父类默认（无参）构造器如果父类没有无参构造器编译器就会报错</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><span id="t6">多态的概念</span></p>
+
+    <blockquote>
+      <p>一个引用变量可以指示多种事件类型的现象称为多态</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><span id="t7">方法签名</span></p>
+
+    <blockquote>
+      <p>方法的名字和参数列表称为方法的签名</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><span id="t8">问题：能覆盖一个private或static的方法吗</span></p>
+
+    <blockquote>
+      <p>不能覆盖一个private，static的方法，如果在子类中写了一个名字相同结果与在子类中增加一个方法是一样的，当用父类引用调用子类对象这个方法时调用的还是父类的方法。</p>
+
+      <p>static 方法之所以不能被覆盖原因是：方法覆盖是基于运行时动态绑定的但static方法是编译时静态绑定的，static和类的任何实例都不相关，所以概念上不适用</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><span id="t9">方法的覆盖</span></p>
+
+    <ul>
+      <li>
+        <p>定义</p>
+
+        <blockquote>
+          <p>在子类中定义了一个与超类签名相同的方法，子类中的方法将覆盖超类中的方法</p>
+        </blockquote>
+      </li>
+      <li>
+        <p>覆盖规则</p>
+
+        <blockquote>
+          <p><strong>注意</strong>：返回类型不是签名的一部分，因此，在覆盖方法时一定要注意返回类型的兼容性</p>
+        </blockquote>
+
+        <ol>
+          <li>父类中的方法在子类中必须可见，即子类继承了父类中的该方法（可以显式的使用super关键字来访问父类中的被重写的方法）</li>
+          <li>如果父类中的方法为private类型的，那么子类则无法继承，也无法覆盖</li>
+          <li>如果父类和子类都是static方法，那么子类隐藏父类的方法，而不是重写父类方法</li>
+          <li>子类和父类的方法必须要具有相同的函数名称、参数列表，并且子类的返回值与父类相同或者是父类返回类型的子类型（jdk1.5之后）</li>
+          <li>如果方法名称相同而参数列表不同（返回类型可以相同也可以不同），那么只是方法的重载，而非重写。</li>
+          <li>如果方法名称和参数列表相同，返回值类型不同，子类返回值类型也不是父类返回值类型的子类，编译器就会报错。（无法覆盖）</li>
+          <li>子类方法的访问权限不能小于父类方法的访问权限（可以具有相同的访问权限或者子类的访问权限大于父类）</li>
+          <li>子类方法不能比父类方法抛出更多的编译时异常（不是运行时异常），即子类方法抛出的编译时异常或者和父类相同或者是父类异常的子类。</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><span id="t10">阻止继承和覆盖</span></p>
+
+    <blockquote>
+      <p>可以使用<code class="highlighter-rouge">final</code>关键字修饰类防止类的继承</p>
+
+      <p>可以使用<code class="highlighter-rouge">final</code>关键字修饰方法防止方法的覆盖</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><span id="t11">强制转换</span>（引用）</p>
+
+    <blockquote>
+      <p>一个子类可以转换成父类但是如果一个父类要转换成子类必须的经过强制转换，</p>
+
+      <p><strong>强制转换有前提</strong>：前提是要转换成子类的<strong>父类引用必须得指向一个子类对象</strong>否则会报错</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><span id="t12">instanceof</span></p>
+
+    <blockquote>
+      <p>instanceof 运算符 用法：</p>
+
+      <p>​	a(引用) instanceof X(类或接口)</p>
+
+      <p>返回的是true或false</p>
+
+      <p>判断a引用所<strong>指向的对象</strong>是否是<strong>X类(接口)或X类的子类</strong>的一个实例</p>
+
+      <p>可以在强制转换的时候使用避免出错</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><span id="t13">问题 多态调用子类继承方法，方法中含有子类特有的方法</span></p>
+
+    <blockquote>
+      <p>问题：使用多态调用子类继承的方法其中这个方法调用的子类特有的方法可以吗?</p>
+
+      <p>答案：是可以的</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><span id="t14">问题:abstract 类的构造方法可以是public的吗 子类可以调用父类的构造器吗</span></p>
+
+    <blockquote>
+      <p>抽象类的构造方法可以是public的，并且子类可以用super来调用</p>
+
+      <p>父类的构造方法来初始化属性</p>
+    </blockquote>
+  </li>
+</ul>
+
+  <!-- 引入share模块 -->
+  
+  <div class="social-share-wrapper">
+    <div class="social-share"></div>
+  </div>
+
+
+<!-- share.js -->
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+  socialShare('.social-share', {
+    sites: [
+      
+        'qq'
+        ,
+        
+      
+        'wechat'
+        ,
+        
+      
+        'weibo'
+        ,
+        
+      
+        'twitter'
+        ,
+        
+      
+        'facebook'
+        
+      
+    ],
+    wechatQrcodeTitle: "分享到微信朋友圈",
+    wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
+  });
+</script>
+
+</div>
+
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+
+
+
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDI2OS8xMDgwNg=="></div>
+    </section>
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    <!-- City版安装代码已完成 -->
+
+
+
+
+
+<!-- 引入goto模块 -->
+<div class="bounceInRight animated go">
+  <a title="顶部切换页面" class="gototop" href="#htmlup" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Top
+    </div>
+  </a>
+  <a title="底部有livere评论哦" class="gotobottom" href="#htmldown" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Foot
+    </div>
+  </a>
+</div>
+
+<!-- 引入页面底部模块 -->
+<footer id="bottom">
+  <br>
+  <span>记录美好生活 ©
+  
+  
+  2019
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a> | <a href="https://github.com/xukimseven/HardCandy-Jekyll">HardCandy-Jekyll</a></span>
+</footer>
+
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

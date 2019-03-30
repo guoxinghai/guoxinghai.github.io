@@ -1,0 +1,443 @@
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="将自己学习的知识和生活的点滴记录下来" />
+<meta name="keywords" content="java, web" />
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/media.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/pygments/pygments_friendly.css">
+<link rel="stylesheet" href="/assets/css/github-markdown.css">
+<!-- SNS-icon -->
+<script src="//at.alicdn.com/t/font_856428_y9z6nq7zf5.js"></script>
+<!-- share.css -->
+<link rel="stylesheet" href="/assets/css/share.min.css">
+<!-- font -->
+<link rel="stylesheet" href="/assets/css/font.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Ubuntu|Roboto+Mono|Source+Sans+Pro" rel="stylesheet"> -->
+
+<!-- Favicon -->
+<link href="/assets/profile.jpeg" rel="shortcut icon" />
+<link href="/assets/profile.jpeg" rel="apple-touch-icon-precomposed" />
+<!-- Android Lolipop Theme Color -->
+<!-- <meta name="theme-color" content="#1464FB"> -->
+<title>对数据库表记录操作</title>
+<!-- 百度统计 -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 谷歌分析 -->
+
+
+<!-- Android Lolipop Theme Color -->
+<meta name="theme-color" content=" rgb(255,210,32) ">
+</head>
+<body>
+
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+
+<header id="post-header" style="background-color:rgb(255,210,32);">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/" title="my awesome webtitle" style="color: white;">海哥哥的微博</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/" style="color: white;">首页</a></li>
+              
+                <li><a href="/photos.html" style="color: white;">相册</a></li>
+              
+                <li><a href="/tags.html" style="color: white;">标签</a></li>
+              
+                <li><a href="/timeline.html" style="color: white;">时间线</a></li>
+              
+                <li><a href="/about.html" style="color: white;">关于博主</a></li>
+              
+                <li><a href="/friendLink.html" style="color: white;">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/boot_white.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/boot_white.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+
+<!-- 引入移动下拉选项 -->
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/photos.html"><li>相册</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/timeline.html"><li>时间线</li></a>
+        
+          <a href="/about.html"><li>关于博主</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<!-- 引入博文顶部样式 -->
+<!-- 版本一 垃圾 -->
+<!-- <div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">对数据库表记录操作</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;海</span>
+</div> -->
+
+<!-- 版本二 可切换页面 -->
+
+<div class="post-top" style="background-color:rgb(255,210,32);">
+  <!-- 页面宽度大于800px -->
+  <div class="left-area">
+    
+      <a href="/2019/03/17/regular.html" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(255,210,32)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(255,210,32);"><sapn class="main">正则表达式</sapn></span></div>
+    
+  </div>
+  <div class="post-titlearea">
+    <span class="wow fadeInUp" data-wow-delay="0.2s">对数据库表记录操作</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;海</span> -->
+  </div>
+  <div class="right-area">
+    
+      <a href="/2019/03/17/SqlInjection.html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(255,210,32)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
+      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(255,210,32);"><sapn class="main">JDBC_Sql注入问题</sapn></span></div>
+    
+  </div>
+
+  <!-- 页面宽度小于800px -->
+  <div class="post-changearea">
+    
+      <a href="/2019/03/17/regular.html" class="leftchange" style="border-right: 1px solid rgb(255,210,32);border-bottom: 2px solid rgb(255,210,32);"><span>上一篇<br><br>正则表达式</span></a>
+    
+    
+      <a href="/2019/03/17/SqlInjection.html" class="rightchange" style="border-left: 1px solid rgb(255,210,32);border-bottom: 2px solid rgb(255,210,32);"><span>下一篇<br><br>JDBC_Sql注入问题</span></a>
+    
+  </div>
+</div>
+
+
+<div class="markdown-body fadeInUp animated">
+
+  
+
+  <!-- 文章内容 -->
+  <h1 id="对数据库表记录操作">对数据库表记录操作</h1>
+
+<ul>
+  <li>
+    <p><strong>插入数据中文乱码问题解决</strong></p>
+
+    <ol>
+      <li>
+        <p><strong>方法一</strong></p>
+
+        <p><strong>修改数据库安装目录里面的 my.ini 文件 然后重启Mysql服务</strong></p>
+
+        <p>在第57行添加：<strong>default-character-set=utf8</strong></p>
+
+        <p><img src="img\修改my.ini文件.png" alt="图片" /></p>
+
+        <ol>
+          <li>
+            <p><strong>方法二</strong>(<font color="green">建议</font>)</p>
+
+            <p>使用命令：<code class="highlighter-rouge">set names 字符集</code></p>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p><strong>插入记录</strong></p>
+
+    <ol>
+      <li>
+        <p><code class="highlighter-rouge">insert into 表名 (列1，列2，列3) values (值1，值2，值3)</code></p>
+
+        <p><strong>注意前面的列与后面的值相对应前面的列可以自己指定</strong></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">insert into 表名 values(值1，值2，值3)</code></p>
+
+        <p><strong>后面的值必须要与全部的列相对应 如果某个列是自动增长的可以将值设置为null</strong></p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p><strong>更新/修改记录</strong></p>
+
+    <ol>
+      <li>
+        <p>不带条件</p>
+
+        <p><code class="highlighter-rouge">update 表名 set 字段名=值</code></p>
+
+        <p>结果会将表中该字段下所有的值都改变</p>
+      </li>
+      <li>
+        <p>带条件的</p>
+
+        <p><code class="highlighter-rouge">update 表名 set 字段名=值 where 条件</code></p>
+
+        <p>结构会将表中字段符合条件的内容改变</p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p><strong>删除表记录</strong></p>
+
+    <ol>
+      <li>
+        <p>带条件</p>
+
+        <p><code class="highlighter-rouge">delete from 表名 where 条件</code></p>
+
+        <p>会将符合条件的记录删除，id不会重置</p>
+      </li>
+      <li>
+        <p>不带条件的</p>
+
+        <p><code class="highlighter-rouge"> delete from 表名</code></p>
+
+        <p>会将表中所有记录都删除但表没有被删除</p>
+      </li>
+      <li>
+        <p>面试题</p>
+
+        <p>说说delete与truncate的区别?</p>
+
+        <p>delete 删除的时候是一条一条的删除记录配合事务可以将数据找回</p>
+
+        <p>truncate是将整个表删除然后再新建一张符合条件的表找不回数据</p>
+
+        <p>truncate删除table不能带条件：<code class="highlighter-rouge">truncate 表名</code></p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p><strong>事务</strong></p>
+
+    <ol>
+      <li>
+        <p>开启事务</p>
+
+        <p><code class="highlighter-rouge">start transaction</code></p>
+      </li>
+      <li>
+        <p>回滚事务</p>
+
+        <p><code class="highlighter-rouge">rollback</code></p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p><strong>查询操作</strong></p>
+
+    <p><strong>语法</strong>：<code class="highlighter-rouge">select [distinct]  | * 列名1，列名2 from 表名 [where 条件]</code></p>
+
+    <p><strong>以下列这个存储商品信息的表（product）为例</strong></p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align: center">id</th>
+          <th style="text-align: center">name</th>
+          <th style="text-align: center">price</th>
+          <th style="text-align: center">date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: center"> </td>
+          <td style="text-align: center"> </td>
+          <td style="text-align: center"> </td>
+          <td style="text-align: center"> </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ol>
+      <li>
+        <p>查询所有商品信息</p>
+
+        <p>语法：<code class="highlighter-rouge">select * from product</code></p>
+      </li>
+      <li>
+        <p>查询商品名和商品价格</p>
+
+        <p><code class="highlighter-rouge">select name, price from product </code></p>
+      </li>
+      <li>
+        <p>查询所有商品信息使用表别名</p>
+
+        <p><code class="highlighter-rouge">select * from product [as] p</code></p>
+      </li>
+      <li>
+        <p>查询商品名，使用列别名</p>
+
+        <p><code class="highlighter-rouge">select name [as] p </code></p>
+      </li>
+      <li>
+        <p>去掉重复值(按照价格)</p>
+
+        <p><code class="highlighter-rouge">select distinct(price) from product</code></p>
+      </li>
+      <li>
+        <p>所有商品价格＋10显示</p>
+      </li>
+    </ol>
+
+    <p><code class="highlighter-rouge">select name , price + 10 from product</code></p>
+  </li>
+</ul>
+
+
+  <!-- 引入share模块 -->
+  
+  <div class="social-share-wrapper">
+    <div class="social-share"></div>
+  </div>
+
+
+<!-- share.js -->
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+  socialShare('.social-share', {
+    sites: [
+      
+        'qq'
+        ,
+        
+      
+        'wechat'
+        ,
+        
+      
+        'weibo'
+        ,
+        
+      
+        'twitter'
+        ,
+        
+      
+        'facebook'
+        
+      
+    ],
+    wechatQrcodeTitle: "分享到微信朋友圈",
+    wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
+  });
+</script>
+
+</div>
+
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+
+
+
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDI2OS8xMDgwNg=="></div>
+    </section>
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    <!-- City版安装代码已完成 -->
+
+
+
+
+
+<!-- 引入goto模块 -->
+<div class="bounceInRight animated go">
+  <a title="顶部切换页面" class="gototop" href="#htmlup" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Top
+    </div>
+  </a>
+  <a title="底部有livere评论哦" class="gotobottom" href="#htmldown" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Foot
+    </div>
+  </a>
+</div>
+
+<!-- 引入页面底部模块 -->
+<footer id="bottom">
+  <br>
+  <span>记录美好生活 ©
+  
+  
+  2019
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a> | <a href="https://github.com/xukimseven/HardCandy-Jekyll">HardCandy-Jekyll</a></span>
+</footer>
+
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+---
+layout: post
+title: '外键约束'
+date: 2019-03-24
+author: 海
+color: rgb(255,210,32)
+cover: '../assets/bgimage/database.jpg'
+tags: database SQL
+---
+
+# 外键约束
+
+* **外键特点**
+
+  * 从表外键的值是对主表主键的引用
+  * 从表外键类型**必须与主表字段类型一致**
+  * 从表的外键可以是主表主键也可以是其他**唯一性**字段(**unique**)
+
+* **添加外键约束的方法**
+
+  * 创建表时声明外键约束(在表的下方声明)
+
+    `[constraint] [外键名称] foreign key (从表外键字段名) references 主表(主表字段名)`
+
+  * 修改表声明外键约束
+
+    `alter table 从表 add [constraint] [外键名称] foreign key (从表外键字段名) references 主表 (主表字段名)`
+
+* **外键名称**
+
+  是用来删除外键的 建议用 **_fk** 结尾
+
+* **外键的删除**
+
+  * `alter table 表名 drop foreign key 外键名称`
+
