@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-09T21:04:45+08:00</updated><id>http://localhost:4000/</id><title type="html">记录美好生活</title><subtitle>将自己学习的知识和生活的点滴记录下来</subtitle><author><name>true</name></author><entry><title type="html">Python爬虫403问题</title><link href="http://localhost:4000/2019/04/09/spider403.html" rel="alternate" type="text/html" title="Python爬虫403问题" /><published>2019-04-09T00:00:00+08:00</published><updated>2019-04-09T00:00:00+08:00</updated><id>http://localhost:4000/2019/04/09/spider403</id><content type="html" xml:base="http://localhost:4000/2019/04/09/spider403.html">&lt;h1 id=&quot;爬取数据时-403&quot;&gt;爬取数据时 403&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-09T21:59:44+08:00</updated><id>http://localhost:4000/</id><title type="html">记录美好生活</title><subtitle>将自己学习的知识和生活的点滴记录下来</subtitle><author><name>true</name></author><entry><title type="html">Python爬虫403问题</title><link href="http://localhost:4000/2019/04/09/spider403.html" rel="alternate" type="text/html" title="Python爬虫403问题" /><published>2019-04-09T00:00:00+08:00</published><updated>2019-04-09T00:00:00+08:00</updated><id>http://localhost:4000/2019/04/09/spider403</id><content type="html" xml:base="http://localhost:4000/2019/04/09/spider403.html">&lt;h1 id=&quot;爬取数据时-403&quot;&gt;爬取数据时 403&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;403错误，表示资源不可用。服务器理解客户的请求，但拒绝处理它，通常由于服务器上文件或目录的权限设置导致的WEB访问错误。&lt;/p&gt;
@@ -42,7 +42,58 @@
       &lt;p&gt;某资源有可能只能通过某一个页面来请求资源，那么这时要设置referer来假装是从某个页面请求资源&lt;/p&gt;
     &lt;/blockquote&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>海</name></author><category term="爬虫" /><summary type="html">爬取数据时 403</summary></entry><entry><title type="html">JAVA核心技术第五章</title><link href="http://localhost:4000/2019/03/27/javaCoreTechnologyC5.html" rel="alternate" type="text/html" title="JAVA核心技术第五章" /><published>2019-03-27T00:00:00+08:00</published><updated>2019-03-27T00:00:00+08:00</updated><id>http://localhost:4000/2019/03/27/javaCoreTechnologyC5</id><content type="html" xml:base="http://localhost:4000/2019/03/27/javaCoreTechnologyC5.html">&lt;h1 id=&quot;第五章继承&quot;&gt;第五章继承&lt;/h1&gt;
+&lt;/ul&gt;</content><author><name>海</name></author><category term="爬虫" /><summary type="html">爬取数据时 403</summary></entry><entry><title type="html">理解if __name__ == __main__</title><link href="http://localhost:4000/2019/04/09/name.html" rel="alternate" type="text/html" title="理解if __name__ == __main__" /><published>2019-04-09T00:00:00+08:00</published><updated>2019-04-09T00:00:00+08:00</updated><id>http://localhost:4000/2019/04/09/name</id><content type="html" xml:base="http://localhost:4000/2019/04/09/name.html">&lt;h1 id=&quot;对于-if-__name__--__main__-的理解&quot;&gt;对于 if __name__ == ‘__main__’ 的理解&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;在test包中创建一个demo的.py文件里面包含如下代码&lt;/p&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'first'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'__main__'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'second'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;运行之后结果如下：&lt;/p&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;__main__&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;second&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;创建一个import_demo的 .py文件包含如下代码&lt;/p&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;demo&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'test'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;运行结果如下:&lt;/p&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;demo&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt;语句中的内容没有运行&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;说明__name__&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;运行demo文件时__name__为__main__&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;运行import_demo时__name__为test.demo&lt;/p&gt;
+
+        &lt;blockquote&gt;
+          &lt;p&gt;举个例子小明的&lt;strong&gt;名字&lt;/strong&gt;对于他自己来说是我但对于别人来说就是&lt;strong&gt;小明&lt;/strong&gt;&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name>海</name></author><category term="python" /><summary type="html">对于 if __name__ == ‘__main__’ 的理解</summary></entry><entry><title type="html">JAVA核心技术第五章</title><link href="http://localhost:4000/2019/03/27/javaCoreTechnologyC5.html" rel="alternate" type="text/html" title="JAVA核心技术第五章" /><published>2019-03-27T00:00:00+08:00</published><updated>2019-03-27T00:00:00+08:00</updated><id>http://localhost:4000/2019/03/27/javaCoreTechnologyC5</id><content type="html" xml:base="http://localhost:4000/2019/03/27/javaCoreTechnologyC5.html">&lt;h1 id=&quot;第五章继承&quot;&gt;第五章继承&lt;/h1&gt;
 
 &lt;h3 id=&quot;目录&quot;&gt;目录&lt;/h3&gt;
 
@@ -500,50 +551,4 @@
 
     &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select * from student limit 12, 3&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>海</name></author><category term="database" /><category term="SQL" /><summary type="html">分页查询</summary></entry><entry><title type="html">表的创建与修改</title><link href="http://localhost:4000/2019/03/23/group.html" rel="alternate" type="text/html" title="表的创建与修改" /><published>2019-03-23T00:00:00+08:00</published><updated>2019-03-23T00:00:00+08:00</updated><id>http://localhost:4000/2019/03/23/group</id><content type="html" xml:base="http://localhost:4000/2019/03/23/group.html">&lt;h1 id=&quot;分组&quot;&gt;分组&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;初始化表&lt;/strong&gt;(product)&lt;/p&gt;
-
-    &lt;ol&gt;
-      &lt;li&gt;
-        &lt;p&gt;添加分类id&lt;/p&gt;
-
-        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alter table product add cid int&lt;/code&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;初始化数据&lt;/p&gt;
-
-        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;update product set cid = 1&lt;/code&gt;&lt;/p&gt;
-
-        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;update product set cid = 2 where id in (2, 3, 5)&lt;/code&gt;&lt;/p&gt;
-
-        &lt;p&gt;&lt;img src=&quot;img\分组表demo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;根据cid字段分组，分组后统计商品的个数&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select cid, count(*) from product group by cid&lt;/code&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;img\分组查询结果.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;根据cid分组, 分组统计每组商品的平均价格&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select avg(price) from product group by cid&lt;/code&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;img\分组查询价格.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;根据cid分组, 分组统计每组商品的平均价格并显示平均价格大于70的结果&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select avg(price) from product group by cid having arg(price)&amp;gt;70&lt;/code&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;img\分组条件查询价格.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-    &lt;font color=&quot;red&quot;&gt;&lt;b&gt;注意分组之后再使用条件查询 不能用 where 应该使用having&lt;/b&gt;&lt;/font&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>海</name></author><category term="database" /><category term="SQL" /><summary type="html">分组</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>海</name></author><category term="database" /><category term="SQL" /><summary type="html">分页查询</summary></entry></feed>

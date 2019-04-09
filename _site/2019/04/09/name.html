@@ -26,7 +26,7 @@
 <link href="/assets/profile.jpeg" rel="apple-touch-icon-precomposed" />
 <!-- Android Lolipop Theme Color -->
 <!-- <meta name="theme-color" content="#1464FB"> -->
-<title>Python爬虫403问题</title>
+<title>理解if __name__ == __main__</title>
 <!-- 百度统计 -->
 
 <script>
@@ -104,7 +104,7 @@ var _hmt = _hmt || [];
 <!-- 引入博文顶部样式 -->
 <!-- 版本一 垃圾 -->
 <!-- <div class="wow fadeIn top" data-wow-duration="3.5s" >
-    <span class="wow fadeInUp" data-wow-delay="0.2s">Python爬虫403问题</span>
+    <span class="wow fadeInUp" data-wow-delay="0.2s">理解if __name__ == __main__</span>
     <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
     <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
     <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;海</span>
@@ -116,30 +116,30 @@ var _hmt = _hmt || [];
   <!-- 页面宽度大于800px -->
   <div class="left-area">
     
-      <a href="javascript:;" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(43,43,43)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
-      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(43,43,43);"><sapn class="main">没有上一页咯</sapn></span></div>
+      <a href="/2019/04/09/spider403.html" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(43,43,43)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(43,43,43);"><sapn class="main">Python爬虫403问题</sapn></span></div>
     
   </div>
   <div class="post-titlearea">
-    <span class="wow fadeInUp" data-wow-delay="0.2s">Python爬虫403问题</span>
+    <span class="wow fadeInUp" data-wow-delay="0.2s">理解if __name__ == __main__</span>
     <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
     <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
     <!-- <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;海</span> -->
   </div>
   <div class="right-area">
     
-      <a href="/2019/04/09/name.html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(43,43,43)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
-      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(43,43,43);"><sapn class="main">理解if __name__ == __main__</sapn></span></div>
+      <a href="/2019/03/27/javaCoreTechnologyC5.html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(43,43,43)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
+      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(43,43,43);"><sapn class="main">JAVA核心技术第五章</sapn></span></div>
     
   </div>
 
   <!-- 页面宽度小于800px -->
   <div class="post-changearea">
     
-      <a href="javascript:;" class="leftchange" style="border-right: 1px solid rgb(43,43,43);border-bottom: 2px solid rgb(43,43,43);"><span><br>没有上一篇咯</span></a>
+      <a href="/2019/04/09/spider403.html" class="leftchange" style="border-right: 1px solid rgb(43,43,43);border-bottom: 2px solid rgb(43,43,43);"><span>上一篇<br><br>Python爬虫403问题</span></a>
     
     
-      <a href="/2019/04/09/name.html" class="rightchange" style="border-left: 1px solid rgb(43,43,43);border-bottom: 2px solid rgb(43,43,43);"><span>下一篇<br><br>理解if __name__ == __main__</span></a>
+      <a href="/2019/03/27/javaCoreTechnologyC5.html" class="rightchange" style="border-left: 1px solid rgb(43,43,43);border-bottom: 2px solid rgb(43,43,43);"><span>下一篇<br><br>JAVA核心技术第五章</span></a>
     
   </div>
 </div>
@@ -150,51 +150,59 @@ var _hmt = _hmt || [];
   
 
   <!-- 文章内容 -->
-  <h1 id="爬取数据时-403">爬取数据时 403</h1>
+  <h1 id="对于-if-__name__--__main__-的理解">对于 if __name__ == ‘__main__’ 的理解</h1>
 
-<blockquote>
-  <p>403错误，表示资源不可用。服务器理解客户的请求，但拒绝处理它，通常由于服务器上文件或目录的权限设置导致的WEB访问错误。</p>
-</blockquote>
-
-<h3 id="出现403是服务器拒接访问">出现403是服务器拒接访问</h3>
-
-<h3 id="解决方法">解决方法</h3>
-
-<ul>
+<ol>
   <li>
-    <p>设置<strong>User-Agent</strong></p>
+    <p>在test包中创建一个demo的.py文件里面包含如下代码</p>
 
-    <blockquote>
-      <p>user-agent ：是请求头<strong>headers</strong>的属性之一</p>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'first'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'second'</span><span class="p">)</span>
+</code></pre></div>    </div>
 
-      <p>若在爬取数据时未设置<strong>user-agent</strong>默认爬虫软件的信息</p>
+    <p>运行之后结果如下：</p>
 
-      <p>若是服务器设置了反爬就会拒绝访问资源</p>
-    </blockquote>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">first</span>
+<span class="n">__main__</span>
+<span class="n">second</span>
+</code></pre></div>    </div>
   </li>
   <li>
-    <p>有可能<strong>ip</strong>被封了</p>
+    <p>创建一个import_demo的 .py文件包含如下代码</p>
 
-    <blockquote>
-      <p>你访问某个网站次数过多有可能会被认定为是爬虫</p>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">test</span> <span class="kn">import</span> <span class="n">demo</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'test'</span><span class="p">)</span>
+</code></pre></div>    </div>
 
-      <p>网站一般是不允许随意爬取资源的，所以你的ip有可能</p>
+    <p>运行结果如下:</p>
 
-      <p>会被封，这时可以设置代理来防止自己的ip被封，去网上</p>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">first</span>
+<span class="n">test</span><span class="o">.</span><span class="n">demo</span>
+<span class="n">test</span>
+</code></pre></div>    </div>
 
-      <p>搜代理可以获得免费的高匿代理ip但是免费的代理ip不太稳定</p>
-    </blockquote>
+    <p><code class="highlighter-rouge">if</code>语句中的内容没有运行</p>
   </li>
   <li>
-    <p>设置<strong>Referer</strong></p>
+    <p>说明__name__</p>
 
-    <blockquote>
-      <p>Referer：是请求头<strong>headers</strong>的属性之一包含一个URL，用户从该URL代表的页面出发访问当前请求的页面。</p>
+    <ul>
+      <li>
+        <p>运行demo文件时__name__为__main__</p>
+      </li>
+      <li>
+        <p>运行import_demo时__name__为test.demo</p>
 
-      <p>某资源有可能只能通过某一个页面来请求资源，那么这时要设置referer来假装是从某个页面请求资源</p>
-    </blockquote>
+        <blockquote>
+          <p>举个例子小明的<strong>名字</strong>对于他自己来说是我但对于别人来说就是<strong>小明</strong></p>
+        </blockquote>
+      </li>
+    </ul>
   </li>
-</ul>
+</ol>
+
 
   <!-- 引入share模块 -->
   
