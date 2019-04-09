@@ -1,4 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-30T19:24:27+08:00</updated><id>http://localhost:4000/</id><title type="html">记录美好生活</title><subtitle>将自己学习的知识和生活的点滴记录下来</subtitle><author><name>true</name></author><entry><title type="html">JAVA核心技术第五章</title><link href="http://localhost:4000/2019/03/27/javaCoreTechnologyC5.html" rel="alternate" type="text/html" title="JAVA核心技术第五章" /><published>2019-03-27T00:00:00+08:00</published><updated>2019-03-27T00:00:00+08:00</updated><id>http://localhost:4000/2019/03/27/javaCoreTechnologyC5</id><content type="html" xml:base="http://localhost:4000/2019/03/27/javaCoreTechnologyC5.html">&lt;h1 id=&quot;第五章继承&quot;&gt;第五章继承&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-09T21:04:45+08:00</updated><id>http://localhost:4000/</id><title type="html">记录美好生活</title><subtitle>将自己学习的知识和生活的点滴记录下来</subtitle><author><name>true</name></author><entry><title type="html">Python爬虫403问题</title><link href="http://localhost:4000/2019/04/09/spider403.html" rel="alternate" type="text/html" title="Python爬虫403问题" /><published>2019-04-09T00:00:00+08:00</published><updated>2019-04-09T00:00:00+08:00</updated><id>http://localhost:4000/2019/04/09/spider403</id><content type="html" xml:base="http://localhost:4000/2019/04/09/spider403.html">&lt;h1 id=&quot;爬取数据时-403&quot;&gt;爬取数据时 403&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;403错误，表示资源不可用。服务器理解客户的请求，但拒绝处理它，通常由于服务器上文件或目录的权限设置导致的WEB访问错误。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;出现403是服务器拒接访问&quot;&gt;出现403是服务器拒接访问&lt;/h3&gt;
+
+&lt;h3 id=&quot;解决方法&quot;&gt;解决方法&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;设置&lt;strong&gt;User-Agent&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;user-agent ：是请求头&lt;strong&gt;headers&lt;/strong&gt;的属性之一&lt;/p&gt;
+
+      &lt;p&gt;若在爬取数据时未设置&lt;strong&gt;user-agent&lt;/strong&gt;默认爬虫软件的信息&lt;/p&gt;
+
+      &lt;p&gt;若是服务器设置了反爬就会拒绝访问资源&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;有可能&lt;strong&gt;ip&lt;/strong&gt;被封了&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;你访问某个网站次数过多有可能会被认定为是爬虫&lt;/p&gt;
+
+      &lt;p&gt;网站一般是不允许随意爬取资源的，所以你的ip有可能&lt;/p&gt;
+
+      &lt;p&gt;会被封，这时可以设置代理来防止自己的ip被封，去网上&lt;/p&gt;
+
+      &lt;p&gt;搜代理可以获得免费的高匿代理ip但是免费的代理ip不太稳定&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;设置&lt;strong&gt;Referer&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;Referer：是请求头&lt;strong&gt;headers&lt;/strong&gt;的属性之一包含一个URL，用户从该URL代表的页面出发访问当前请求的页面。&lt;/p&gt;
+
+      &lt;p&gt;某资源有可能只能通过某一个页面来请求资源，那么这时要设置referer来假装是从某个页面请求资源&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>海</name></author><category term="爬虫" /><summary type="html">爬取数据时 403</summary></entry><entry><title type="html">JAVA核心技术第五章</title><link href="http://localhost:4000/2019/03/27/javaCoreTechnologyC5.html" rel="alternate" type="text/html" title="JAVA核心技术第五章" /><published>2019-03-27T00:00:00+08:00</published><updated>2019-03-27T00:00:00+08:00</updated><id>http://localhost:4000/2019/03/27/javaCoreTechnologyC5</id><content type="html" xml:base="http://localhost:4000/2019/03/27/javaCoreTechnologyC5.html">&lt;h1 id=&quot;第五章继承&quot;&gt;第五章继承&lt;/h1&gt;
 
 &lt;h3 id=&quot;目录&quot;&gt;目录&lt;/h3&gt;
 
@@ -502,84 +546,4 @@
 
     &lt;font color=&quot;red&quot;&gt;&lt;b&gt;注意分组之后再使用条件查询 不能用 where 应该使用having&lt;/b&gt;&lt;/font&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>海</name></author><category term="database" /><category term="SQL" /><summary type="html">分组</summary></entry><entry><title type="html">表的创建与修改</title><link href="http://localhost:4000/2019/03/23/CreateTable.html" rel="alternate" type="text/html" title="表的创建与修改" /><published>2019-03-23T00:00:00+08:00</published><updated>2019-03-23T00:00:00+08:00</updated><id>http://localhost:4000/2019/03/23/CreateTable</id><content type="html" xml:base="http://localhost:4000/2019/03/23/CreateTable.html">&lt;h1 id=&quot;表的创建与修改&quot;&gt;表的创建与修改&lt;/h1&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;创建表&lt;/p&gt;
-
-    &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;create&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;table&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;表名（字段名&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;类型（长度）&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;约束&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-	&lt;span class=&quot;err&quot;&gt;字段名&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;类型（长度）&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;约束&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-	&lt;span class=&quot;err&quot;&gt;字段名&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;类型（长度）&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;约束&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-	&lt;span class=&quot;err&quot;&gt;字段名&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;类型（长度）&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;约束&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;）&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;查看当前数据库的所有表&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;show tables;&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;查看表的结构&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;desc 表名;&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;删除表&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;drop table 表名;&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;修改表名&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;方法一&lt;/p&gt;
-
-        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alter table 表名 rename to 新表名&lt;/code&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;方法二&lt;/p&gt;
-
-        &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rename table 表名 to 新表名&lt;/code&gt;&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;修改表&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;添加一列&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alter table 表名 add 字段名 类型(长度) [约束]&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;修改列的类型(长度，约束)&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alter table 表名 modify 要修改的字段名 类型(长度) [约束]&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;修改列名(列名，长度，约束等)&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alter table 表名 change 旧列名 新列名 类型(长度) [约束]&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;删除列&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alter table 表名 drop [colmun] 列名&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;修改表的字符集&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alter table 表名 character set 字符集&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;查看表的信息&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;show create table 表名&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>海</name></author><category term="database" /><category term="SQL" /><summary type="html">表的创建与修改</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>海</name></author><category term="database" /><category term="SQL" /><summary type="html">分组</summary></entry></feed>
